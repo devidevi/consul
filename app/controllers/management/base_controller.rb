@@ -60,4 +60,10 @@ class Management::BaseController < ActionController::Base
         @manager_logged_in = User.find_by_manager_login(session[:manager]["login"])
       end
     end
+
+    def check_managed_user
+      unless managed_user.persisted?
+        redirect_to request.referer, alert: t("management.check_managed_user")
+      end
+    end
 end

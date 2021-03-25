@@ -131,3 +131,4 @@ es:
       create:
         success: Se han enviado <strong>%{count} invitaciones</strong>.
         title: Enviar invitaciones
+    check_managed_user: Para realizar esta acción debe seleccionar un usuario.

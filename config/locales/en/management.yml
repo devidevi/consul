@@ -131,3 +131,4 @@ en:
       create:
         success: <strong>%{count} invitations</strong> have been sent.
         title: Send invitations
+    check_managed_user: To perform this action you must select a user
