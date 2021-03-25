@@ -1,5 +1,5 @@
 class Management::AccountController < Management::BaseController
-  before_action :only_verified_users
+  before_action :check_managed_user, :only_verified_users
 
   def show
   end

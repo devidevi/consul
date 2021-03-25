@@ -102,4 +102,22 @@ describe "Account" do
     expect(page).to have_css("a[href='javascript:window.print();']", text: "Print password")
     expect(page).to have_css("div.for-print-only", text: "another_new_password", visible: :hidden)
   end
+
+  describe "When a user has not been selected" do
+    scenario "we can not reset password via email" do
+      visit management_root_path
+
+      click_link "Reset password via email"
+
+      expect(page).to have_content "To perform this action you must select a user"
+    end
+
+    scenario "we can not reset password manually" do
+      visit management_root_path
+
+      click_link "Reset password manually"
+
+      expect(page).to have_content "To perform this action you must select a user"
+    end
+  end
 end
