@@ -47,6 +47,14 @@ describe "Proposals" do
 
       expect(page).to have_content "User is not verified"
     end
+
+    scenario "when user has not been selected we can not create proposal" do
+      visit management_root_path
+
+      click_link "Create proposal"
+
+      expect(page).to have_content "To perform this action you must select a user"
+    end
   end
 
   context "Show" do
@@ -177,6 +185,14 @@ describe "Proposals" do
       click_link "Support proposals"
 
       expect(page).to have_content "User is not verified"
+    end
+
+    scenario "when user has not been selected we can not support proposals" do
+      visit management_root_path
+
+      click_link "Support proposals"
+
+      expect(page).to have_content "To perform this action you must select a user"
     end
   end
 
