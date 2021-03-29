@@ -1,6 +1,7 @@
 class BudgetsController < ApplicationController
   include FeatureFlags
   include BudgetsHelper
+  before_action :authenticate_user!
   feature_flag :budgets
 
   before_action :load_budget, only: :show

@@ -12,6 +12,8 @@ class PollsController < ApplicationController
   has_filters %w[current expired]
   has_orders %w[most_voted newest oldest], only: :show
 
+  before_action :authenticate_user!
+
   def index
     @polls = Kaminari.paginate_array(
       @polls.created_by_admin.not_budget.send(@current_filter).includes(:geozones).sort_for_list

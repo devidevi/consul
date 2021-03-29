@@ -1,6 +1,8 @@
 class Legislation::BaseController < ApplicationController
   include FeatureFlags
 
+  before_action :authenticate_user!
+
   feature_flag :legislation
 
   def legislation_proposal_votes(proposals)
